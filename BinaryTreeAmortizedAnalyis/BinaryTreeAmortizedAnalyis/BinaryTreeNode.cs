@@ -46,12 +46,18 @@ namespace BinaryTreeAmortizedAnalyis
         /// </summary>
         /// <param name="value">The value to be assigned to the Node.</param>
         /// <param name="parentNode">The parent BinaryTreeNode to be assigned to the TreeNode.</param>
-        public BinaryTreeNode(int value, BinaryTreeNode parentNode): base(value, parentNode)
+        public BinaryTreeNode(int value, BinaryTreeNode parentNode): base(value)
         {
-            if (this.value <= parentNode.value)
-                parentNode.leftChild = this; 
-            else
+            if (this.value < parentNode.value)
+            {
+                parentNode.leftChild = this;
+                this.parentNode = parentNode;
+            }
+            else if (this.value > parentNode.value)
+            {
                 parentNode.rightChild = this;
+                this.parentNode = parentNode;
+            }
         }
 
         /// <summary>

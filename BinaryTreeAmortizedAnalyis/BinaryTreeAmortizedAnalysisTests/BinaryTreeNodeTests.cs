@@ -93,6 +93,20 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         }
 
         /// <summary>
+        /// Tests that creating connection between two BinaryTreeNode objects with the same value is not possible.
+        /// </summary>
+        [TestMethod()]
+        public void TestConnectingTwoNodesWithSameValueIsNotPossible()
+        {
+            BinaryTreeNode parentNode = new BinaryTreeNode(1);
+            BinaryTreeNode childNode = new BinaryTreeNode(1, parentNode);
+
+            Assert.IsNull(parentNode.leftChild);
+            Assert.IsNull(parentNode.rightChild);
+            Assert.IsNull(childNode.parentNode);
+        }
+
+        /// <summary>
         /// Tests visiting a BinaryTreeNode object. Before visiting the value of the visited flag should be false; after visiting, the value of the visited flag should be true. 
         /// </summary>
         [TestMethod()]

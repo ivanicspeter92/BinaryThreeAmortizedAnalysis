@@ -14,7 +14,7 @@ namespace BinaryTreeAmortizedAnalyis
         /// <summary>
         /// The reference to the parent Node.
         /// </summary>
-        public TreeNode parentNode { get; }
+        public TreeNode parentNode { get; set; }
 
         /// <summary>
         /// Initializes the TreeNode with the given value. Using this initializer leaves the parent node null.
