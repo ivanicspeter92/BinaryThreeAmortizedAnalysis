@@ -11,6 +11,17 @@ namespace BinaryTreeAmortizedAnalyis.Tests
     [TestClass()]
     public class BinaryTreeTests
     {
+        /// <summary>
+        /// Tests the initialization of a BinaryTree with a distinct sequence of integers.
+        /// </summary>
+        [TestMethod()]
+        public void testInitializingWithDistinctOrderedArray()
+        {
+            BinaryTree tree = new BinaryTree(new int[] { 1, 2, 3, 4, 5 });
+
+            Assert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, tree.nodeValues);
+        }
+
         #region IInorderTransversalTests
         [TestMethod()]
         public void inorderFirstTest()
