@@ -19,7 +19,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         {
             BinaryTree tree = new BinaryTree(new int[] { 1, 2, 3, 4, 5 });
 
-            Assert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, tree.nodeValues);
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, tree.nodeValues);
         }
 
         #region IInorderTransversalTests

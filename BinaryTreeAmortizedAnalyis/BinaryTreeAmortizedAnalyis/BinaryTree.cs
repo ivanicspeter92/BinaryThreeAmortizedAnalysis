@@ -23,7 +23,7 @@ namespace BinaryTreeAmortizedAnalyis
         public BinaryTree(int[] integers)
         {
             int[] arrayOfUniqueIntegers = this.distinctAndOrderArray(integers);
-            
+            this.nodeValues = arrayOfUniqueIntegers;
         }
         
         /// <summary>
