@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BinaryTreeTests.cs" />
     <Compile Include="NodeTests\BinaryTreeNodeTests.cs" />
     <Compile Include="NodeTests\NodeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
