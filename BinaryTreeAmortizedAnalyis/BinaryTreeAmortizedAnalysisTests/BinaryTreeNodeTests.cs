@@ -71,6 +71,28 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         }
 
         /// <summary>
+        /// Tests the parent-child connection between three newly initialzied BinaryTreeNode objects.
+        /// The value of one of the children should be smaller, the other one bigger so both the left and right child of the parent gets initialized.
+        /// </summary>
+        [TestMethod()]
+        public void TestBinaryTreeNodeInitializationBothChildren()
+        {
+            BinaryTreeNode parentNode = new BinaryTreeNode(2);
+            BinaryTreeNode leftChildNode = new BinaryTreeNode(1, parentNode);
+            BinaryTreeNode rightChildNode = new BinaryTreeNode(3, parentNode);
+
+            // asserting the left child
+            Assert.AreEqual(leftChildNode, parentNode.leftChild);
+            Assert.AreEqual(leftChildNode.value, parentNode.leftChild.value);
+            Assert.AreEqual(parentNode, leftChildNode.parentNode);
+
+            // asserting the right child
+            Assert.AreEqual(rightChildNode, parentNode.rightChild);
+            Assert.AreEqual(rightChildNode.value, parentNode.rightChild.value);
+            Assert.AreEqual(parentNode, rightChildNode.parentNode);
+        }
+
+        /// <summary>
         /// Tests visiting a BinaryTreeNode object. Before visiting the value of the visited flag should be false; after visiting, the value of the visited flag should be true. 
         /// </summary>
         [TestMethod()]
