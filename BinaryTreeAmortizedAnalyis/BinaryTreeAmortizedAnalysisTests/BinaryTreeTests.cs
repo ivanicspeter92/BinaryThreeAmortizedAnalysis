@@ -21,6 +21,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             BinaryTree tree = new BinaryTree(new int[] { 1, 2, 3, 4, 5 });
 
             CollectionAssert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, tree.nodeValues);
+            Assert.AreEqual(1, tree.distinguishedNode.value);
         }
 
         /// <summary>
@@ -32,6 +33,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             BinaryTree tree = new BinaryTree(new int[] { 3, 2, 5, 1, 4 });
 
             CollectionAssert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, tree.nodeValues);
+            Assert.AreEqual(1, tree.distinguishedNode.value);
         }
 
         /// <summary>
@@ -43,6 +45,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             BinaryTree tree = new BinaryTree(new int[] { 3, 4, 3, 3, 2, 4, 5, 1, 1, 1 });
 
             CollectionAssert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, tree.nodeValues);
+            Assert.AreEqual(1, tree.distinguishedNode.value);
         }
         #endregion
 
