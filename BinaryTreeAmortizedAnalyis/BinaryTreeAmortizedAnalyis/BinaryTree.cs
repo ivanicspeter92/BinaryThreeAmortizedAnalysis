@@ -15,6 +15,10 @@ namespace BinaryTreeAmortizedAnalyis
         /// The array containing the sequence of the values in the tree.
         /// </summary>
         public int[] nodeValues { get; }
+        /// <summary>
+        /// The distinguished Node of the BinaryTree during its inorder transverse.
+        /// </summary>
+        public BinaryTreeNode distinguishedNode { get; }
 
         /// <summary>
         /// Initializes the BinaryTree with an array of integers. NOTE: All duplicated integers will be removed during the initialization and the tree will contain Nodes with unique values.
