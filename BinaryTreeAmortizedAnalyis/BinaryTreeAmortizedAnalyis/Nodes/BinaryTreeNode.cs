@@ -9,8 +9,13 @@ namespace BinaryTreeAmortizedAnalyis
     /// <summary>
     /// A class representing Nodes of a binary tree.
     /// </summary>
-    public class BinaryTreeNode: TreeNode
+    public class BinaryTreeNode: Node
     {
+        /// <summary>
+        /// The reference to the parent Node.
+        /// </summary>
+        public BinaryTreeNode parentNode { get; set; }
+
         /// <summary>
         /// The reference to the left child Node.
         /// </summary>
@@ -67,6 +72,24 @@ namespace BinaryTreeAmortizedAnalyis
         public bool isVisited()
         {
             return this.visited;
+        }
+
+        /// <summary>
+        /// Tells if the Node is a left child of its parent.
+        /// </summary>
+        /// <returns>True, if the Node is a left child of its parent; false otherwise.</returns>
+        public bool isLeftChild()
+        {
+            return false;
+        }
+
+        /// <summary>
+        /// Tells if the Node is a right child of its parent.
+        /// </summary>
+        /// <returns>True, if the Node is a right child of its parent; false otherwise.</returns>
+        public bool isRightChild()
+        {
+            return false;
         }
     }
 }

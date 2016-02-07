@@ -55,16 +55,26 @@ namespace BinaryTreeAmortizedAnalyis
         }
 
         #region IInorderTransversal
+        /// <summary>
+        /// Puts the data structure into the initial state of the transversal (S0).
+        /// </summary>
         public void inorderFirst()
         {
             this.distinguishedNode = this.smallestNode();
         }
 
+        /// <summary>
+        /// Puts the data structure into the next state of the transversal.
+        /// </summary>
         public void inorderNext()
         {
-            throw new NotImplementedException();
+            this.distinguishedNode = this.nextNodeInOrder(this.distinguishedNode);
         }
 
+        /// <summary>
+        /// Tells if the inorder transversal of the data structure is finished.
+        /// </summary>
+        /// <returns>True, if the inorder transversal has ended and all nodes have been visited; False, othewise.</returns>
         public bool isInorderTransversalFinished()
         {
             throw new NotImplementedException();
@@ -132,11 +142,48 @@ namespace BinaryTreeAmortizedAnalyis
         /// <returns>The leftmost (smallest value) Node of the tree.</returns>
         private BinaryTreeNode smallestNode()
         {
-            BinaryTreeNode smallestValueNode = this.rootNode;
-            while (smallestValueNode.leftChild != null)
-            { smallestValueNode = smallestValueNode.leftChild; }
+            if (this.rootNode.leftChild != null)
+                return this.leftmostNodeUnder(this.rootNode); // get the leftmost child of the root Node, if there is any
+            return this.rootNode; // otherwise, the root Node is the smallest in the tree
+        }
 
-            return smallestValueNode;
+        /// <summary>
+        /// Gets the leftmost Node under the given Node.
+        /// </summary>
+        /// <param name="node">The BinaryTreeNode of which's leftmost child Node has to be returned.</param>
+        /// <returns>The leftmost child of the given BinaryTreeNode or null if there isn't any.</returns>
+        private BinaryTreeNode leftmostNodeUnder(BinaryTreeNode node)
+        {
+            if (node.leftChild == null)
+                return null;
+
+            while (node.leftChild != null)
+            { node = node.leftChild; }
+
+            return node;
+        }
+
+        /// <summary>
+        /// Gets the next Node from the tree in order after the given Node.
+        /// </summary>
+        /// <param name="afterNode">The Node of discussion.</param>
+        /// <returns>The Node in the binary tree has the closes bigger value to the afterNode.</returns>
+        private BinaryTreeNode nextNodeInOrder(BinaryTreeNode afterNode)
+        {
+            if (afterNode.rightChild != null)
+            {
+                if (this.leftmostNodeUnder(afterNode.rightChild) != null)
+                    return this.leftmostNodeUnder(afterNode.rightChild);
+            
+                return afterNode.rightChild;
+            }
+            else if (afterNode.parentNode != null)
+            {
+                return afterNode.parentNode;
+               // return this.nextNodeInOrder(afterNode.parentNode);
+            }
+
+            return null;
         }
         #endregion
     }
