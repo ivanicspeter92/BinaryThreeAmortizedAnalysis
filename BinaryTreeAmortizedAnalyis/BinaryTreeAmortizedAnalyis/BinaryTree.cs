@@ -15,34 +15,38 @@ namespace BinaryTreeAmortizedAnalyis
         /// The array containing the sequence of the values in the tree.
         /// </summary>
         public int[] nodeValues { get; }
+
         /// <summary>
         /// The distinguished Node of the BinaryTree during its inorder transverse.
         /// </summary>
-        public BinaryTreeNode distinguishedNode { get; }
+        BinaryTreeNode distinguishedNode;
 
+        /// <summary>
+        /// Read only property for the distinguishedNode field.
+        /// </summary>
+        public BinaryTreeNode DistinguishedNode
+        {
+            get { return this.distinguishedNode; }
+        }
+        
         /// <summary>
         /// Initializes the BinaryTree with an array of integers. NOTE: All duplicated integers will be removed during the initialization and the tree will contain Nodes with unique values.
         /// </summary>
         /// <param name="integers">An array of integers.</param>
         public BinaryTree(int[] integers)
         {
-            int[] arrayOfUniqueIntegers = this.distinctAndOrderArray(integers);
-            this.nodeValues = arrayOfUniqueIntegers;
-        }
-        
-        /// <summary>
-        /// Initializes the BinaryTree with an array of ordered, unique integers. 
-        /// </summary>
-        /// <param name="sequenceOfUniqueIntegers"></param>
-        //private BinaryTree(int[] sequenceOfUniqueIntegers)
-        //{
+            //int[] arrayOfUniqueIntegers = this.distinctAndOrderArray(integers);
+            this.nodeValues = integers.Distinct().ToArray();
 
-        //}
+            this.inorderFirst();
+        }
 
         #region IInorderTransversal
         public void inorderFirst()
         {
-            throw new NotImplementedException();
+            BinaryTreeNode rootNode = this.buildNodeConnections(this.nodeValues);
+
+            this.distinguishedNode = rootNode;
         }
 
         public void inorderNext()
@@ -56,17 +60,60 @@ namespace BinaryTreeAmortizedAnalyis
         }
         #endregion
 
+        #region Private methods
         /// <summary>
-        /// Generates a distinc and ordered array of integers of the given array. Removes duplicate values.
+        /// Builds up BinaryTreeNode objects and their connections from the an array of integers.
         /// </summary>
-        /// <param name="array">The array to be unified and ordered.</param>
-        /// <returns>An array of distinct and ordered integers.</returns>
-        private int[] distinctAndOrderArray(int[] array)
+        /// <param name="sequenceOfUniqueIntegers">A sequence of unique integers to be used to generate the BinaryTree structure.</param>
+        /// <returns>The root BinaryTreeNode matching the first element of the sequence.</returns>
+        private BinaryTreeNode buildNodeConnections(int[] sequenceOfUniqueIntegers)
         {
-            int[] arrayOfUniqueIntegers = array.Distinct().ToArray();
-            Array.Sort(arrayOfUniqueIntegers);
+            BinaryTreeNode rootNode = null;
+            try
+            {
+                rootNode = new BinaryTreeNode(sequenceOfUniqueIntegers[0]);
 
-            return arrayOfUniqueIntegers;
+                for (int i = 1; i < sequenceOfUniqueIntegers.Length; i++)
+                {
+                    BinaryTreeNode newNode = new BinaryTreeNode(sequenceOfUniqueIntegers[i]); // the next Node in the array - we have to find a parent for it in the current structure
+                    BinaryTreeNode newNodeParent = rootNode;
+
+                    while (newNode.parentNode == null)
+                    {
+                        if (newNode.value < newNodeParent.value)
+                        {
+                            if (newNodeParent.leftChild != null)
+                                newNodeParent = newNodeParent.leftChild;
+                            else
+                            {
+                                newNode.parentNode = newNodeParent;
+                                newNodeParent.leftChild = newNode;
+                            }
+                        }
+                        else
+                        {
+                            if (newNodeParent.rightChild != null)
+                                newNodeParent = newNodeParent.rightChild;
+                            else
+                            {
+                                newNode.parentNode = newNodeParent;
+                                newNodeParent.rightChild = newNode;
+                            }
+                        }
+                    }
+                }
+                return rootNode;
+            }
+            catch (IndexOutOfRangeException e)
+            {
+                Console.WriteLine(e.ToString());
+                return rootNode;
+            }
+            catch
+            {
+                return rootNode;
+            }
         }
+        #endregion
     }
 }

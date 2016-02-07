@@ -14,12 +14,12 @@ namespace BinaryTreeAmortizedAnalyis
         /// <summary>
         /// The reference to the left child Node.
         /// </summary>
-        public Node leftChild { get; set; }
+        public BinaryTreeNode leftChild { get; set; }
 
         /// <summary>
         /// The reference to the right child Node.
         /// </summary>
-        public Node rightChild { get; set;  }
+        public BinaryTreeNode rightChild { get; set;  }
 
         /// <summary>
         /// Indicates if the Node was visited during the binary tree transversal. 
