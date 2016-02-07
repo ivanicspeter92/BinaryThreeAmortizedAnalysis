@@ -118,5 +118,35 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             testNode.visit();
             Assert.IsTrue(testNode.isVisited());
         }
+
+        /// <summary>
+        /// Tests the isLeftChild() method.
+        /// </summary>
+        [TestMethod()]
+        public void testIsLeftChild()
+        {
+            BinaryTreeNode rootNode = new BinaryTreeNode(2);
+            BinaryTreeNode leftChild = new BinaryTreeNode(1, rootNode);
+            BinaryTreeNode rightChild = new BinaryTreeNode(3, rootNode);
+
+            Assert.IsFalse(rootNode.isLeftChild());
+            Assert.IsTrue(leftChild.isLeftChild());
+            Assert.IsFalse(rightChild.isLeftChild());
+        }
+
+        /// <summary>
+        /// Tests the isRightChild() method.
+        /// </summary>
+        [TestMethod()]
+        public void testIsRightChild()
+        {
+            BinaryTreeNode rootNode = new BinaryTreeNode(2);
+            BinaryTreeNode leftChild = new BinaryTreeNode(1, rootNode);
+            BinaryTreeNode rightChild = new BinaryTreeNode(3, rootNode);
+
+            Assert.IsFalse(rootNode.isRightChild());
+            Assert.IsFalse(leftChild.isRightChild());
+            Assert.IsTrue(rightChild.isRightChild());
+        }
     }
 }

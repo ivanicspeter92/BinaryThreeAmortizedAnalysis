@@ -66,17 +66,17 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             Assert.AreEqual(8, this.exampleTree.DistinguishedNode.value);
         }
 
-        [TestMethod()]
-        public void testInorderFirst()
-        {
-            Assert.Fail();
-        }
+        //[TestMethod()]
+        //public void testInorderFirst()
+        //{
+        //    Assert.Fail();
+        //}
 
-        [TestMethod()]
-        public void isInorderTransversalFinishedTest()
-        {
-            Assert.Fail();
-        }
+        //[TestMethod()]
+        //public void isInorderTransversalFinishedTest()
+        //{
+        //    Assert.Fail();
+        //}
         #endregion
 
         #region Other tests
