@@ -57,7 +57,7 @@ namespace BinaryTreeAmortizedAnalyis
         #region IInorderTransversal
         public void inorderFirst()
         {
-            //this.distinguishedNode = this.rootNode;
+            this.distinguishedNode = this.smallestNode();
         }
 
         public void inorderNext()
@@ -124,6 +124,19 @@ namespace BinaryTreeAmortizedAnalyis
             {
                 return rootNode;
             }
+        }
+
+        /// <summary>
+        /// Gets the smallest Node of the BinaryTree.
+        /// </summary>
+        /// <returns>The leftmost (smallest value) Node of the tree.</returns>
+        private BinaryTreeNode smallestNode()
+        {
+            BinaryTreeNode smallestValueNode = this.rootNode;
+            while (smallestValueNode.leftChild != null)
+            { smallestValueNode = smallestValueNode.leftChild; }
+
+            return smallestValueNode;
         }
         #endregion
     }
