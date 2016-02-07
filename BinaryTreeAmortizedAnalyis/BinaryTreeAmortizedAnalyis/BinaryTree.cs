@@ -49,8 +49,8 @@ namespace BinaryTreeAmortizedAnalyis
         public BinaryTree(int[] integers)
         {
             //int[] arrayOfUniqueIntegers = this.distinctAndOrderArray(integers);
-            int[] nodeValues = integers.Distinct().ToArray();
-            this.rootNode = this.buildNodeConnections(nodeValues);
+            this.nodeValues = integers.Distinct().ToArray();
+            this.rootNode = this.buildNodeConnections(this.nodeValues);
             this.inorderFirst();
         }
 
