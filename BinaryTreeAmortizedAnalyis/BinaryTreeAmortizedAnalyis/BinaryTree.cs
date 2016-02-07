@@ -28,7 +28,20 @@ namespace BinaryTreeAmortizedAnalyis
         {
             get { return this.distinguishedNode; }
         }
-        
+
+        /// <summary>
+        /// The root Node of the BinaryTree.
+        /// </summary>
+        BinaryTreeNode rootNode;
+
+        /// <summary>
+        /// Read only property for the rootNode field.
+        /// </summary>
+        public BinaryTreeNode RootNode
+        {
+            get { return this.rootNode; }
+        }
+
         /// <summary>
         /// Initializes the BinaryTree with an array of integers. NOTE: All duplicated integers will be removed during the initialization and the tree will contain Nodes with unique values.
         /// </summary>
@@ -36,17 +49,15 @@ namespace BinaryTreeAmortizedAnalyis
         public BinaryTree(int[] integers)
         {
             //int[] arrayOfUniqueIntegers = this.distinctAndOrderArray(integers);
-            this.nodeValues = integers.Distinct().ToArray();
-
+            int[] nodeValues = integers.Distinct().ToArray();
+            this.rootNode = this.buildNodeConnections(nodeValues);
             this.inorderFirst();
         }
 
         #region IInorderTransversal
         public void inorderFirst()
         {
-            BinaryTreeNode rootNode = this.buildNodeConnections(this.nodeValues);
-
-            this.distinguishedNode = rootNode;
+            //this.distinguishedNode = this.rootNode;
         }
 
         public void inorderNext()
