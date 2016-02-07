@@ -80,6 +80,8 @@ namespace BinaryTreeAmortizedAnalyis
         /// <returns>True, if the Node is a left child of its parent; false otherwise.</returns>
         public bool isLeftChild()
         {
+            if (this.parentNode != null)
+                return this.parentNode.leftChild == this;
             return false;
         }
 
@@ -89,6 +91,8 @@ namespace BinaryTreeAmortizedAnalyis
         /// <returns>True, if the Node is a right child of its parent; false otherwise.</returns>
         public bool isRightChild()
         {
+            if (this.parentNode != null)
+                return this.parentNode.rightChild == this;
             return false;
         }
     }
