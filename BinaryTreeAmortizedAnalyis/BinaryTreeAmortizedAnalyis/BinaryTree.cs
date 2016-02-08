@@ -50,7 +50,6 @@ namespace BinaryTreeAmortizedAnalyis
         {
             //int[] arrayOfUniqueIntegers = this.distinctAndOrderArray(integers);
             this.nodeValues = integers.Distinct().ToArray();
-            this.rootNode = this.buildNodeConnections(this.nodeValues);
             this.inorderFirst();
         }
 
@@ -60,6 +59,7 @@ namespace BinaryTreeAmortizedAnalyis
         /// </summary>
         public void inorderFirst()
         {
+            this.rootNode = this.buildNodeConnections(this.nodeValues);
             this.distinguishedNode = this.smallestNode();
         }
 
@@ -68,7 +68,13 @@ namespace BinaryTreeAmortizedAnalyis
         /// </summary>
         public void inorderNext()
         {
-            this.distinguishedNode = this.nextNodeInOrder(this.distinguishedNode);
+            BinaryTreeNode nextNode = this.nextNodeInOrder(this.distinguishedNode);
+
+            if (nextNode != null)
+            {
+                nextNode.visit();
+                this.distinguishedNode = nextNode;
+            }
         }
 
         /// <summary>
@@ -77,7 +83,7 @@ namespace BinaryTreeAmortizedAnalyis
         /// <returns>True, if the inorder transversal has ended and all nodes have been visited; False, othewise.</returns>
         public bool isInorderTransversalFinished()
         {
-            throw new NotImplementedException();
+            return this.distinguishedNode.value == this.nodeValues.Max();
         }
         #endregion
 
@@ -174,15 +180,28 @@ namespace BinaryTreeAmortizedAnalyis
             {
                 if (this.leftmostNodeUnder(afterNode.rightChild) != null)
                     return this.leftmostNodeUnder(afterNode.rightChild);
-            
+
                 return afterNode.rightChild;
             }
             else if (afterNode.parentNode != null)
             {
-                return afterNode.parentNode;
-               // return this.nextNodeInOrder(afterNode.parentNode);
+                if (afterNode.isLeftChild())
+                    return afterNode.parentNode;
+                else
+                    return firstNotVisitedParent(afterNode);
             }
+             return null;
+        }
 
+        private BinaryTreeNode firstNotVisitedParent(BinaryTreeNode ofNode)
+        {
+            while (ofNode.parentNode != null)
+            {
+                if (ofNode.parentNode.isVisited() == false)
+                    return ofNode.parentNode;
+
+                ofNode = ofNode.parentNode;
+            }
             return null;
         }
         #endregion

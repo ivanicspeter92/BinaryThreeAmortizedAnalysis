@@ -22,8 +22,8 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         [TestInitialize()]
         public void Initialize()
         {
-            this.exampleTree = new BinaryTree(new int []{ 3, 2, 7, 1, 5, 4, 6, 8 });
-        }       
+            this.exampleTree = new BinaryTree(new int[] { 3, 2, 7, 1, 5, 4, 6, 8 });
+        }
 
         #region Tests for the exampleTree class variable.
         /// <summary>
@@ -41,23 +41,14 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         /// Tests the inorderNext() function for the exampleTree class variable. Walks through and validates the 8 states of the tree.
         /// </summary>
         [TestMethod()]
-        public void testInorderNext()
+        public void testTransverse()
         {
-            Assert.AreEqual(1, this.exampleTree.DistinguishedNode.value);
-            this.exampleTree.inorderNext();
-            Assert.AreEqual(2, this.exampleTree.DistinguishedNode.value);
-            this.exampleTree.inorderNext();
-            Assert.AreEqual(3, this.exampleTree.DistinguishedNode.value);
-            this.exampleTree.inorderNext();
-            Assert.AreEqual(4, this.exampleTree.DistinguishedNode.value);
-            this.exampleTree.inorderNext();
-            Assert.AreEqual(5, this.exampleTree.DistinguishedNode.value);
-            this.exampleTree.inorderNext();
-            Assert.AreEqual(6, this.exampleTree.DistinguishedNode.value);
-            this.exampleTree.inorderNext();
-            Assert.AreEqual(7, this.exampleTree.DistinguishedNode.value);
-            this.exampleTree.inorderNext();
-            Assert.AreEqual(8, this.exampleTree.DistinguishedNode.value);
+            for (int i = 1; i < this.exampleTree.nodeValues.Length; i++)
+            {
+                Assert.IsFalse(exampleTree.isInorderTransversalFinished());
+                Assert.AreEqual(i, this.exampleTree.DistinguishedNode.value);
+                this.exampleTree.inorderNext();
+            }
             // the transverse should be finished at this point
             Assert.IsTrue(exampleTree.isInorderTransversalFinished()); // calling inorderNext() should keep the tree in the last state.
             this.exampleTree.inorderNext();
@@ -66,17 +57,33 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             Assert.AreEqual(8, this.exampleTree.DistinguishedNode.value);
         }
 
-        //[TestMethod()]
-        //public void testInorderFirst()
-        //{
-        //    Assert.Fail();
-        //}
+        /// <summary>
+        /// Tests transversing the exampleTree class variable. Walks through and validates the 8 states of the tree, then resets the tree to its original state and transverses it again.
+        /// </summary>
+        [TestMethod()]
+        public void testTransverseTwoTimes()
+        {
+            int i = 1;
+            while (this.exampleTree.isInorderTransversalFinished() == false)
+            {
+                Assert.IsFalse(exampleTree.isInorderTransversalFinished());
+                Assert.AreEqual(i, this.exampleTree.DistinguishedNode.value);
+                this.exampleTree.inorderNext();
+                i++;
+            }
+            Assert.IsTrue(exampleTree.isInorderTransversalFinished());
+            this.exampleTree.inorderFirst();
+            Assert.IsFalse(exampleTree.isInorderTransversalFinished());
 
-        //[TestMethod()]
-        //public void isInorderTransversalFinishedTest()
-        //{
-        //    Assert.Fail();
-        //}
+            i = 1;
+            while (this.exampleTree.isInorderTransversalFinished() == false)
+            {
+                Assert.IsFalse(exampleTree.isInorderTransversalFinished());
+                Assert.AreEqual(i, this.exampleTree.DistinguishedNode.value);
+                this.exampleTree.inorderNext();
+                i++;
+            }
+        }
         #endregion
 
         #region Other tests
@@ -117,6 +124,26 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             CollectionAssert.AreEqual(new int[] { 3, 4, 2, 5, 1 }, tree.nodeValues);
             Assert.AreEqual(3, tree.RootNode.value);
             Assert.AreEqual(1, tree.DistinguishedNode.value);
+        }
+
+        /// <summary>
+        /// Tests the transverse of custom, complex tree.
+        /// </summary>
+        [TestMethod()]
+        public void testTransverseComplexTree()
+        {
+            BinaryTree tree = new BinaryTree(new int[] { 14, 8, 6, 4, 2, 7, 9, 11, 13, 25, 15, 18, 17, 29, 28, 30, 31 });
+            int[] transverseOrder = new int[] { 2, 4, 6, 7, 8, 9, 11, 13, 14, 15, 17, 18, 25, 28, 29, 30, 31 };
+
+            Assert.AreEqual(14, tree.RootNode.value);
+
+            for (int i = 0; i < transverseOrder.Length; i++)
+            {
+                Assert.AreEqual(transverseOrder[i], tree.DistinguishedNode.value);
+                tree.inorderNext();
+            }
+
+
         }
         #endregion
     }
