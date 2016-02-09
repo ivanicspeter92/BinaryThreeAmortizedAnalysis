@@ -127,6 +127,21 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         }
 
         /// <summary>
+        /// Initializes a BinaryTree with 10 Nodes. Validates, that the node values are unique, the lowest Node value is 0 and the highest Node value is 10.
+        /// </summary>
+        [TestMethod()]
+        public void testInitializingWithRandomNumbersNoBounds()
+        {
+            BinaryTree treeWithTenNodes = new BinaryTree(10);
+
+            Assert.AreEqual(treeWithTenNodes.nodeValues.Length, 10);
+            Assert.AreEqual(treeWithTenNodes.nodeValues.Min(), 1);
+            Assert.AreEqual(treeWithTenNodes.nodeValues.Max(), 10);
+
+            Assert.AreEqual(treeWithTenNodes.nodeValues.Distinct(), treeWithTenNodes.nodeValues);
+        }
+
+        /// <summary>
         /// Tests the transverse of custom, complex tree.
         /// </summary>
         [TestMethod()]
@@ -141,10 +156,12 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             {
                 Assert.AreEqual(transverseOrder[i], tree.DistinguishedNode.value);
                 tree.inorderNext();
-            }
-
-
+            }            
         }
         #endregion
-    }
+
+        #region Tests for random trees
+       
+        #endregion
+        }
 }
