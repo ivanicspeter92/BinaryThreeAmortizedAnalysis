@@ -74,6 +74,8 @@ namespace BinaryTreeAmortizedAnalyis
                     i++;
                 }
             }
+
+            this.inorderFirst();
         }
 
         #region IInorderTransversal

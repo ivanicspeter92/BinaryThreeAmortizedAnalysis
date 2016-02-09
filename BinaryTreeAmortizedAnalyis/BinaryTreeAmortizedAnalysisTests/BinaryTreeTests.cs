@@ -86,7 +86,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         }
         #endregion
 
-        #region Other tests
+        #region Initializer tests
         /// <summary>
         /// Tests the initialization of a BinaryTree with a distinct sequence of integers.
         /// </summary>
@@ -145,17 +145,19 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         [TestMethod()]
         public void testIfRandomNodeInitializerGeneratesNonSequentialArray()
         {
-            BinaryTree treeWithTenNodes = new BinaryTree(100);
+            BinaryTree treeWithHundredNodes = new BinaryTree(100);
             
-            for (int i = 0; i < treeWithTenNodes.nodeValues.Length - 1; i++)
+            for (int i = 0; i < treeWithHundredNodes.nodeValues.Length - 1; i++)
             {
-                if (treeWithTenNodes.nodeValues[i] > treeWithTenNodes.nodeValues[i + 1])
+                if (treeWithHundredNodes.nodeValues[i] > treeWithHundredNodes.nodeValues[i + 1])
                     return;
             }
 
             Assert.Fail("The binary tree of 100 random Nodes was sequential");
         }
+        #endregion
 
+        #region Transverse tests
         /// <summary>
         /// Tests the transverse of custom, complex tree.
         /// </summary>
@@ -173,10 +175,23 @@ namespace BinaryTreeAmortizedAnalyis.Tests
                 tree.inorderNext();
             }            
         }
-        #endregion
 
-        #region Tests for random trees
-       
-        #endregion
+        /// <summary>
+        /// Tests the transverse of random tree with 100 Nodes.
+        /// </summary>
+        [TestMethod()]
+        public void testTransverseRandonTreeOfHundredNodes()
+        {
+            BinaryTree tree = new BinaryTree(100);
+            int[] transverseOrder = tree.nodeValues;
+
+            Array.Sort(transverseOrder);
+            for (int i = 0; i < transverseOrder.Length; i++)
+            {
+                Assert.AreEqual(transverseOrder[i], tree.DistinguishedNode.value);
+                tree.inorderNext();
+            }
         }
+        #endregion
+    }
 }
