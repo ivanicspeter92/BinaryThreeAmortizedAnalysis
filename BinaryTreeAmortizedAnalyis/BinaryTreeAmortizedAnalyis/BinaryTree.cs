@@ -19,7 +19,7 @@ namespace BinaryTreeAmortizedAnalyis
         /// <summary>
         /// The distinguished Node of the BinaryTree during its inorder transverse.
         /// </summary>
-        BinaryTreeNode distinguishedNode;
+        private BinaryTreeNode distinguishedNode;
 
         /// <summary>
         /// Read only property for the distinguishedNode field.
@@ -48,9 +48,10 @@ namespace BinaryTreeAmortizedAnalyis
         /// <param name="integers">An array of integers.</param>
         public BinaryTree(int[] integers)
         {
-            //int[] arrayOfUniqueIntegers = this.distinctAndOrderArray(integers);
             this.nodeValues = integers.Distinct().ToArray();
-            this.inorderFirst();
+
+            this.rootNode = this.buildNodeConnections(this.nodeValues);
+            this.distinguishedNode = this.rootNode;
         }
 
         /// <summary>
@@ -75,7 +76,8 @@ namespace BinaryTreeAmortizedAnalyis
                 }
             }
 
-            this.inorderFirst();
+            this.rootNode = this.buildNodeConnections(this.nodeValues);
+            this.distinguishedNode = this.rootNode;
         }
 
         #region IInorderTransversal
@@ -84,7 +86,9 @@ namespace BinaryTreeAmortizedAnalyis
         /// </summary>
         public void inorderFirst()
         {
-            this.rootNode = this.buildNodeConnections(this.nodeValues);
+            if (this.distinguishedNode.isVisited())
+                this.rootNode = this.buildNodeConnections(this.nodeValues);
+
             this.distinguishedNode = this.smallestNode();
         }
 
