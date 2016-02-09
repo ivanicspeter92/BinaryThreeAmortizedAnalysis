@@ -130,13 +130,30 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         /// Initializes a BinaryTree with 10 Nodes. Validates, that the node values are unique, the lowest Node value is 0 and the highest Node value is 10.
         /// </summary>
         [TestMethod()]
-        public void testInitializingWithRandomNumbersNoBounds()
+        public void testInitializingWithTenRandomNodes()
         {
             BinaryTree treeWithTenNodes = new BinaryTree(10);
 
             Assert.AreEqual(treeWithTenNodes.nodeValues.Length, 10);
             Assert.AreEqual(treeWithTenNodes.nodeValues.Min(), 1);
             Assert.AreEqual(treeWithTenNodes.nodeValues.Max(), 10);
+        }
+
+        /// <summary>
+        /// Initializes a BinaryTree with more than 100 Nodes. Validates, that the generated tree is NOT sequential.
+        /// </summary>
+        [TestMethod()]
+        public void testIfRandomNodeInitializerGeneratesNonSequentialArray()
+        {
+            BinaryTree treeWithTenNodes = new BinaryTree(100);
+            
+            for (int i = 0; i < treeWithTenNodes.nodeValues.Length - 1; i++)
+            {
+                if (treeWithTenNodes.nodeValues[i] > treeWithTenNodes.nodeValues[i + 1])
+                    return;
+            }
+
+            Assert.Fail("The binary tree of 100 random Nodes was sequential");
         }
 
         /// <summary>
