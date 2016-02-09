@@ -95,5 +95,23 @@ namespace BinaryTreeAmortizedAnalyis
                 return this.parentNode.rightChild == this;
             return false;
         }
+
+        /// <summary>
+        /// Tells if the Node is root node.
+        /// </summary>
+        /// <returns>True, if the node is root node; false otherwise.</returns>
+        public bool isRootNode()
+        {
+            return this.parentNode == null;
+        }
+
+        /// <summary>
+        /// Tells if the Node is leaf node.
+        /// </summary>
+        /// <returns>True, if the node is leaft node; false otherwise.</returns>
+        public bool isLeafNode()
+        {
+            return this.leftChild == null && this.rightChild == null;
+        }
     }
 }
