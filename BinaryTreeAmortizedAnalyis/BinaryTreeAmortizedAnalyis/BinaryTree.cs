@@ -53,6 +53,29 @@ namespace BinaryTreeAmortizedAnalyis
             this.inorderFirst();
         }
 
+        /// <summary>
+        /// Initializes the BinaryTree with a specified number of random Nodes.
+        /// </summary>
+        /// <param name="numberOfNodes">The number of random Nodes in the tree.</param>
+        public BinaryTree(int numberOfNodes)
+        {
+            this.nodeValues = new int[numberOfNodes];
+
+            int i = 0;
+            Random rnd = new Random();
+
+            while (i < numberOfNodes)
+            {
+                int nextNodeValue = rnd.Next(1, numberOfNodes + 1);
+
+                if (!this.nodeValues.Contains(nextNodeValue))
+                {
+                    this.nodeValues[i] = nextNodeValue;
+                    i++;
+                }
+            }
+        }
+
         #region IInorderTransversal
         /// <summary>
         /// Puts the data structure into the initial state of the transversal (S0).

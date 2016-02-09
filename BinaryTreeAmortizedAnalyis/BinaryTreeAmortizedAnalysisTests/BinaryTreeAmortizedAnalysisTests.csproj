@@ -54,7 +54,6 @@
     <Compile Include="NodeTests\BinaryTreeNodeTests.cs" />
     <Compile Include="NodeTests\NodeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="NodeTests\TreeNodeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BinaryTreeAmortizedAnalyis\BinaryTreeAmortizedAnalyis.csproj">

@@ -137,8 +137,6 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             Assert.AreEqual(treeWithTenNodes.nodeValues.Length, 10);
             Assert.AreEqual(treeWithTenNodes.nodeValues.Min(), 1);
             Assert.AreEqual(treeWithTenNodes.nodeValues.Max(), 10);
-
-            Assert.AreEqual(treeWithTenNodes.nodeValues.Distinct(), treeWithTenNodes.nodeValues);
         }
 
         /// <summary>
