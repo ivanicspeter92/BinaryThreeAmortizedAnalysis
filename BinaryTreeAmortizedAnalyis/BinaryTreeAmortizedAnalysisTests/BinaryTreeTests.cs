@@ -34,7 +34,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         {
             CollectionAssert.AreEqual(new int[] { 3, 2, 7, 1, 5, 4, 6, 8 }, this.exampleTree.nodeValues);
             Assert.AreEqual(3, this.exampleTree.RootNode.value);
-            Assert.AreEqual(1, this.exampleTree.DistinguishedNode.value);
+            Assert.AreEqual(3, this.exampleTree.DistinguishedNode.value);
         }
 
         /// <summary>
@@ -43,6 +43,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         [TestMethod()]
         public void testTransverse()
         {
+            this.exampleTree.inorderFirst();
             for (int i = 1; i < this.exampleTree.nodeValues.Length; i++)
             {
                 Assert.IsFalse(exampleTree.isInorderTransversalFinished());
@@ -64,6 +65,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         public void testTransverseTwoTimes()
         {
             int i = 1;
+            this.exampleTree.inorderFirst();
             while (this.exampleTree.isInorderTransversalFinished() == false)
             {
                 Assert.IsFalse(exampleTree.isInorderTransversalFinished());
@@ -76,6 +78,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             Assert.IsFalse(exampleTree.isInorderTransversalFinished());
 
             i = 1;
+            this.exampleTree.inorderFirst();
             while (this.exampleTree.isInorderTransversalFinished() == false)
             {
                 Assert.IsFalse(exampleTree.isInorderTransversalFinished());
@@ -110,7 +113,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
 
             CollectionAssert.AreEqual(new int[] { 3, 2, 5, 1, 4 }, tree.nodeValues);
             Assert.AreEqual(3, tree.RootNode.value);
-            Assert.AreEqual(1, tree.DistinguishedNode.value);
+            Assert.AreEqual(3, tree.DistinguishedNode.value);
         }
 
         /// <summary>
@@ -123,7 +126,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
 
             CollectionAssert.AreEqual(new int[] { 3, 4, 2, 5, 1 }, tree.nodeValues);
             Assert.AreEqual(3, tree.RootNode.value);
-            Assert.AreEqual(1, tree.DistinguishedNode.value);
+            Assert.AreEqual(3, tree.DistinguishedNode.value);
         }
 
         /// <summary>
@@ -169,6 +172,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
 
             Assert.AreEqual(14, tree.RootNode.value);
 
+            tree.inorderFirst();
             for (int i = 0; i < transverseOrder.Length; i++)
             {
                 Assert.AreEqual(transverseOrder[i], tree.DistinguishedNode.value);
@@ -180,12 +184,14 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         /// Tests the transverse of random tree with 100 Nodes.
         /// </summary>
         [TestMethod()]
-        public void testTransverseRandonTreeOfHundredNodes()
+        public void testTransverseRandomTreeOfHundredNodes()
         {
             BinaryTree tree = new BinaryTree(100);
             int[] transverseOrder = tree.nodeValues;
 
             Array.Sort(transverseOrder);
+
+            tree.inorderFirst();
             for (int i = 0; i < transverseOrder.Length; i++)
             {
                 Assert.AreEqual(transverseOrder[i], tree.DistinguishedNode.value);
