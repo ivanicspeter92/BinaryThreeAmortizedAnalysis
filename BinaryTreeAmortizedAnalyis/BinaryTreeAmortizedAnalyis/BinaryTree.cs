@@ -271,7 +271,7 @@ namespace BinaryTreeAmortizedAnalyis
         {
             int value = 1 + toNode.rank - fromNode.rank;
 
-            Debug.WriteLine(fromNode.value + "->" + toNode.value + "=>" + value);
+            //Debug.WriteLine(fromNode.value + "->" + toNode.value + "=>" + value);
 
             return value;
         }

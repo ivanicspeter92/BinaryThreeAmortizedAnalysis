@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Diagnostics;
 
 namespace BinaryTreeAmortizedAnalyis.Tests
 {
@@ -250,7 +252,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         }
 
         /// <summary>
-        /// Tests the transverse of random tree with 100 Nodes.
+        /// Tests the amortized complexity calculation of a random tree with 100 Nodes.
         /// </summary>
         [TestMethod()]
         public void testCalculateAmortizedComplexityOfRandomTreeOfHundredNodes()
@@ -258,6 +260,43 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             BinaryTree tree = new BinaryTree(100); // will generate Nodes with values [1, 100] in random order
             Assert.AreEqual(2 * (tree.nodeValues.Length - 1), tree.calculateAmortizedComplexity()); // the complexity is always 2*(n-1)
         }
-        #endregion
-    }
+
+        /// <summary>
+        /// Tests the amortized complexity calculations of random trees with random number of Nodes and iterations in a loop. Allows to write the results to file.
+        /// </summary>
+        [TestMethod()]
+        public void testCalculateAmortizedComplexityOfRandomTreesInLoop()
+        {
+            int minNumberOfNodes = 50, maxNumberOfNodes = 100, numberOfTrees = 50;
+            bool writeResultsToFile = true;
+            FileStream fs = new FileStream("./amortizedAnalysisResults.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            Random rnd = new Random();
+
+            if (minNumberOfNodes > maxNumberOfNodes || minNumberOfNodes < 0 || maxNumberOfNodes < 1 || numberOfTrees < 1)
+                Assert.Fail("The configuration is incorrect");
+
+            for (int i = 0; i < numberOfTrees; i++)
+            {
+                Debug.WriteLine("-----------------------------------------------------------------");
+                var numberOfNodes = rnd.Next(minNumberOfNodes, maxNumberOfNodes);
+                Debug.WriteLine("Generating " + numberOfTrees + " random trees with " + numberOfNodes + " Nodes");
+                BinaryTree tree = new BinaryTree(numberOfNodes);
+
+                Debug.WriteLine("Tree was generated from the following values: { " + string.Join(",", tree.nodeValues) + "} (" + tree.nodeValues.Length + " nodes)");
+
+                int amortizedComplexity = tree.calculateAmortizedComplexity();
+                Assert.AreEqual(2 * (tree.nodeValues.Length - 1), amortizedComplexity); // the complexity is always 2*(n-1)
+
+                Debug.WriteLine("Amortized complexity: " + amortizedComplexity);
+                Debug.WriteLine("Is amortized complexity right: " + (2 * (tree.nodeValues.Length - 1) == amortizedComplexity).ToString());
+
+                if (writeResultsToFile)
+                    sw.WriteLine(tree.nodeValues.Length + "," + amortizedComplexity);                
+            }
+            sw.Close();
+            fs.Close();
+        }
+            #endregion
+        }
 }
