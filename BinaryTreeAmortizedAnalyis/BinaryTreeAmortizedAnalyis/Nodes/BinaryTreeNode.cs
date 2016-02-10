@@ -34,7 +34,7 @@ namespace BinaryTreeAmortizedAnalyis
         /// <summary>
         /// The rank of the Node in the tree.
         /// </summary>
-        int rank { get; }
+        public int rank { get; } = 0;
 
         /// <summary>
         /// Sets the visited flag of the Node to true. Should be called when the Node is visited during the Binary tree transversal.
@@ -58,15 +58,17 @@ namespace BinaryTreeAmortizedAnalyis
         /// <param name="parentNode">The parent BinaryTreeNode to be assigned to the TreeNode.</param>
         public BinaryTreeNode(int value, BinaryTreeNode parentNode): base(value)
         {
-            if (this.value < parentNode.value)
+            if (value < parentNode.value)
             {
                 parentNode.leftChild = this;
                 this.parentNode = parentNode;
+                this.rank = parentNode.rank - 1;
             }
-            else if (this.value > parentNode.value)
+            else if (value > parentNode.value)
             {
                 parentNode.rightChild = this;
                 this.parentNode = parentNode;
+                this.rank = parentNode.rank + 1;
             }
         }
 

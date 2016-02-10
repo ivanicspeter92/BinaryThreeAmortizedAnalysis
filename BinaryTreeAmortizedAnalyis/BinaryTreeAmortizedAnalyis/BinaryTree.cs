@@ -131,30 +131,24 @@ namespace BinaryTreeAmortizedAnalyis
 
                 for (int i = 1; i < sequenceOfUniqueIntegers.Length; i++)
                 {
-                    BinaryTreeNode newNode = new BinaryTreeNode(sequenceOfUniqueIntegers[i]); // the next Node in the array - we have to find a parent for it in the current structure
+                    BinaryTreeNode newNode = null; //new BinaryTreeNode(sequenceOfUniqueIntegers[i]); // the next Node in the array - we have to find a parent for it in the current structure
                     BinaryTreeNode newNodeParent = rootNode;
 
-                    while (newNode.parentNode == null)
+                    while (newNode == null)
                     {
-                        if (newNode.value < newNodeParent.value)
+                        if (sequenceOfUniqueIntegers[i] < newNodeParent.value)
                         {
                             if (newNodeParent.leftChild != null)
                                 newNodeParent = newNodeParent.leftChild;
                             else
-                            {
-                                newNode.parentNode = newNodeParent;
-                                newNodeParent.leftChild = newNode;
-                            }
+                                newNode = new BinaryTreeNode(sequenceOfUniqueIntegers[i], newNodeParent);
                         }
                         else
                         {
                             if (newNodeParent.rightChild != null)
                                 newNodeParent = newNodeParent.rightChild;
                             else
-                            {
-                                newNode.parentNode = newNodeParent;
-                                newNodeParent.rightChild = newNode;
-                            }
+                                newNode = new BinaryTreeNode(sequenceOfUniqueIntegers[i], newNodeParent);
                         }
                     }
                 }
