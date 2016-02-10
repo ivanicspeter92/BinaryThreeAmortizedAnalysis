@@ -269,7 +269,14 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         {
             int minNumberOfNodes = 50, maxNumberOfNodes = 100, numberOfTrees = 50;
             bool writeResultsToFile = true;
-            FileStream fs = new FileStream("./amortizedAnalysisResults.txt", FileMode.Create);
+            FileStream fs = new FileStream("./amortizedAnalysisResults-" + 
+                DateTime.Now.Year + "-" + 
+                DateTime.Now.Month + "-" + 
+                DateTime.Now.Day + "_" +
+                DateTime.Now.Hour + "." +
+                DateTime.Now.Minute + "." +
+                DateTime.Now.Second +
+                ".txt", FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             Random rnd = new Random();
 
