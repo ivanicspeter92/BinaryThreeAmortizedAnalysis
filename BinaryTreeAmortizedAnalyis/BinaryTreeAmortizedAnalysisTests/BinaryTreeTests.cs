@@ -217,6 +217,22 @@ namespace BinaryTreeAmortizedAnalyis.Tests
             tree.inorderFirst();
             for (int i = 1; i < tree.nodeValues.Length + 1; i++)
             {
+                Assert.AreEqual(i, tree.DistinguishedNode.value, "Assertion failed, tree node values: " + string.Join(" ", tree.nodeValues));
+                tree.inorderNext();
+            }
+        }
+
+        /// <summary>
+        /// Test for a problematic sequence of integers that was randomly generated and cought on the testTransverseRandomTreeOfHundredNodes().
+        /// </summary>
+        [TestMethod()]
+        public void testTransverseProblematicTreeOfHundredNodes()
+        {
+            BinaryTree tree = new BinaryTree(new int[] { 61, 33, 9, 81, 22, 75, 45, 8, 16, 54, 4, 66, 63, 53, 62, 48, 14, 90, 1, 38, 80, 28, 44, 68, 76, 82, 69, 93, 96, 71, 98, 31, 100, 41, 84, 35, 24, 51, 73, 47, 6, 20, 23, 7, 37, 94, 97, 70, 58, 91, 17, 57, 78, 13, 32, 50, 18, 34, 87, 79, 85, 27, 46, 39, 83, 30, 3, 36, 42, 67, 26, 40, 5, 25, 12, 10, 74, 19, 15, 2, 29, 60, 65, 86, 64, 11, 52, 77, 59, 95, 99, 72, 89, 88, 92, 49, 43, 56, 55, 21 });
+
+            tree.inorderFirst();
+            for (int i = 1; i < tree.nodeValues.Length + 1; i++)
+            {
                 Assert.AreEqual(i, tree.DistinguishedNode.value);
                 tree.inorderNext();
             }

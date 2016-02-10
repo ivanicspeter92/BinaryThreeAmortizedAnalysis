@@ -84,18 +84,23 @@ namespace BinaryTreeAmortizedAnalyis
         /// <summary>
         /// Puts the data structure into the initial state of the transversal (S0).
         /// </summary>
-        public void inorderFirst()
+        /// <returns>The currently distinguished node.</returns>
+        public BinaryTreeNode inorderFirst()
         {
             if (this.distinguishedNode.isVisited())
                 this.rootNode = this.buildNodeConnections(this.nodeValues);
 
             this.distinguishedNode = this.smallestNode();
+            this.distinguishedNode.visit();
+
+            return this.distinguishedNode;
         }
 
         /// <summary>
         /// Puts the data structure into the next state of the transversal.
         /// </summary>
-        public void inorderNext()
+        /// <returns>The currently distinguished node.</returns>
+        public BinaryTreeNode inorderNext()
         {
             BinaryTreeNode nextNode = this.nextNodeInOrder(this.distinguishedNode);
 
@@ -104,6 +109,8 @@ namespace BinaryTreeAmortizedAnalyis
                 nextNode.visit();
                 this.distinguishedNode = nextNode;
             }
+
+            return this.distinguishedNode;
         }
 
         /// <summary>

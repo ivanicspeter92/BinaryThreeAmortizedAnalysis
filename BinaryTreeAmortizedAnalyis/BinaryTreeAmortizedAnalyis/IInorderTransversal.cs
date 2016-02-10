@@ -11,11 +11,13 @@ namespace BinaryTreeAmortizedAnalyis
         /// <summary>
         /// Puts the data structure into the initial state of the transversal (S0).
         /// </summary>
-        void inorderFirst();
+        /// <returns>The currently distinguished node.</returns>
+        BinaryTreeNode inorderFirst();
         /// <summary>
         /// Puts the data structure into the next state of the transversal.
         /// </summary>
-        void inorderNext();
+        /// <returns>The currently distinguished node.</returns>
+        BinaryTreeNode inorderNext();
         /// <summary>
         /// Tells if the inorder transversal of the data structure is finished.
         /// </summary>
