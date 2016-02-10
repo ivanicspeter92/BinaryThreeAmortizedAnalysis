@@ -32,6 +32,11 @@ namespace BinaryTreeAmortizedAnalyis
         private bool visited = false;
 
         /// <summary>
+        /// The rank of the Node in the tree.
+        /// </summary>
+        int rank { get; }
+
+        /// <summary>
         /// Sets the visited flag of the Node to true. Should be called when the Node is visited during the Binary tree transversal.
         /// </summary>
         public void visit()
