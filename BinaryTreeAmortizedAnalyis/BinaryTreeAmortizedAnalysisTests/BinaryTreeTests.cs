@@ -67,7 +67,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         /// Tests the inorderNext() function for the exampleTree class variable. Walks through and validates the 8 states of the tree.
         /// </summary>
         [TestMethod()]
-        public void testTransverse()
+        public void testExampleTreeTransversal()
         {
             this.exampleTree.inorderFirst();
             for (int i = 1; i < this.exampleTree.nodeValues.Length; i++)
@@ -88,7 +88,7 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         /// Tests transversing the exampleTree class variable. Walks through and validates the 8 states of the tree, then resets the tree to its original state and transverses it again.
         /// </summary>
         [TestMethod()]
-        public void testTransverseTwoTimes()
+        public void testExampleTreeTransversalTwoTimes()
         {
             int i = 1;
             this.exampleTree.inorderFirst();
@@ -113,7 +113,18 @@ namespace BinaryTreeAmortizedAnalyis.Tests
                 i++;
             }
         }
-        #endregion
+
+        /// <summary>
+        /// Tests calculating the amortized complexity the exampleTree class variable. 
+        /// </summary>
+        [TestMethod()]
+        public void testExampleTreeAmortizedComplexity()
+        {
+            // number of nodes = 8
+            // a = 2*(n - 1) = 2*( 8 - 1) = 14
+            Assert.AreEqual(14, this.exampleTree.calculateAmortizedComplexity());
+        }
+            #endregion
 
         #region Initializer tests
         /// <summary>
