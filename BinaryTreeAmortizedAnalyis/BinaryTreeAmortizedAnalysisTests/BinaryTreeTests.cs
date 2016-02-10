@@ -27,14 +27,40 @@ namespace BinaryTreeAmortizedAnalyis.Tests
 
         #region Tests for the exampleTree class variable.
         /// <summary>
-        /// Tests the initialization method of a BinaryTree class for the exampleTree class variable.
+        /// Tests the initialization method of a BinaryTree class for the exampleTree class variable. Validates the correctness of the BinaryTree Node structure, values and ranks.
         /// </summary>
         [TestMethod()]
         public void testExampleTreeInitialization()
         {
             CollectionAssert.AreEqual(new int[] { 3, 2, 7, 1, 5, 4, 6, 8 }, this.exampleTree.nodeValues);
-            Assert.AreEqual(3, this.exampleTree.RootNode.value);
-            Assert.AreEqual(3, this.exampleTree.DistinguishedNode.value);
+            Assert.AreEqual(3, this.exampleTree.DistinguishedNode.value); // checking if the distinguished node is the root node after the initialization
+
+            // going through the Node values and ranks
+            BinaryTreeNode rootNode = this.exampleTree.RootNode;
+
+            Assert.AreEqual(3, rootNode.value);
+            Assert.AreEqual(0, rootNode.rank);
+
+            Assert.AreEqual(2, rootNode.leftChild.value);
+            Assert.AreEqual(-1, rootNode.leftChild.rank);
+
+            Assert.AreEqual(1, rootNode.leftChild.leftChild.value);
+            Assert.AreEqual(-2, rootNode.leftChild.leftChild.rank);
+
+            Assert.AreEqual(7, rootNode.rightChild.value);
+            Assert.AreEqual(1, rootNode.rightChild.rank);
+
+            Assert.AreEqual(5, rootNode.rightChild.leftChild.value);
+            Assert.AreEqual(0, rootNode.rightChild.leftChild.rank);
+
+            Assert.AreEqual(4, rootNode.rightChild.leftChild.leftChild.value);
+            Assert.AreEqual(-1, rootNode.rightChild.leftChild.leftChild.rank);
+
+            Assert.AreEqual(6, rootNode.rightChild.leftChild.rightChild.value);
+            Assert.AreEqual(1, rootNode.rightChild.leftChild.rightChild.rank);
+
+            Assert.AreEqual(8, rootNode.rightChild.rightChild.value);
+            Assert.AreEqual(2, rootNode.rightChild.rightChild.rank);
         }
 
         /// <summary>
@@ -186,15 +212,12 @@ namespace BinaryTreeAmortizedAnalyis.Tests
         [TestMethod()]
         public void testTransverseRandomTreeOfHundredNodes()
         {
-            BinaryTree tree = new BinaryTree(100);
-            int[] transverseOrder = tree.nodeValues;
-
-            Array.Sort(transverseOrder);
+            BinaryTree tree = new BinaryTree(100); // will generate Nodes with values [1, 100] in random order
 
             tree.inorderFirst();
-            for (int i = 0; i < transverseOrder.Length; i++)
+            for (int i = 1; i < tree.nodeValues.Length + 1; i++)
             {
-                Assert.AreEqual(transverseOrder[i], tree.DistinguishedNode.value);
+                Assert.AreEqual(i, tree.DistinguishedNode.value);
                 tree.inorderNext();
             }
         }
