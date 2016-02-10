@@ -248,6 +248,16 @@ namespace BinaryTreeAmortizedAnalyis.Tests
                 tree.inorderNext();
             }
         }
+
+        /// <summary>
+        /// Tests the transverse of random tree with 100 Nodes.
+        /// </summary>
+        [TestMethod()]
+        public void testCalculateAmortizedComplexityOfRandomTreeOfHundredNodes()
+        {
+            BinaryTree tree = new BinaryTree(100); // will generate Nodes with values [1, 100] in random order
+            Assert.AreEqual(2 * (tree.nodeValues.Length - 1), tree.calculateAmortizedComplexity()); // the complexity is always 2*(n-1)
+        }
         #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,11 @@ namespace BinaryTreeAmortizedAnalyis
         }
 
         /// <summary>
+        /// The current value of the amortized complexity during the transversal of the tree.
+        /// </summary>
+        private int amortizedComplexity = 0;
+
+        /// <summary>
         /// Initializes the BinaryTree with an array of integers. NOTE: All duplicated integers will be removed during the initialization and the tree will contain Nodes with unique values.
         /// </summary>
         /// <param name="integers">An array of integers.</param>
@@ -80,6 +86,21 @@ namespace BinaryTreeAmortizedAnalyis
             this.distinguishedNode = this.rootNode;
         }
 
+        /// <summary>
+        /// Performs a full inorder transverse of the BinaryTree and calculates the amortized complexity of the transversal.
+        /// </summary>
+        /// <returns>The amortized complexity of the transversal.</returns>
+        public int calculateAmortizedComplexity()
+        {
+            this.inorderFirst();
+            while (this.isInorderTransversalFinished() == false)
+            {
+                this.inorderNext();
+            }
+
+            return this.amortizedComplexity;
+        }
+
         #region IInorderTransversal
         /// <summary>
         /// Puts the data structure into the initial state of the transversal (S0).
@@ -90,6 +111,7 @@ namespace BinaryTreeAmortizedAnalyis
             if (this.distinguishedNode.isVisited())
                 this.rootNode = this.buildNodeConnections(this.nodeValues);
 
+            this.amortizedComplexity = 0;
             this.distinguishedNode = this.smallestNode();
             this.distinguishedNode.visit();
 
@@ -194,7 +216,10 @@ namespace BinaryTreeAmortizedAnalyis
                 return null;
 
             while (node.leftChild != null)
-            { node = node.leftChild; }
+            {
+                this.amortizedComplexity += this.getAmortizedComplexity(node, node.leftChild);
+                node = node.leftChild;
+            }
 
             return node;
         }
@@ -208,15 +233,21 @@ namespace BinaryTreeAmortizedAnalyis
         {
             if (afterNode.rightChild != null)
             {
-                if (this.leftmostNodeUnder(afterNode.rightChild) != null)
-                    return this.leftmostNodeUnder(afterNode.rightChild);
+                this.amortizedComplexity += this.getAmortizedComplexity(afterNode, afterNode.rightChild);
+                BinaryTreeNode leftmostNode = this.leftmostNodeUnder(afterNode.rightChild);    
 
+                if (leftmostNode != null)
+                    return leftmostNode;
+                
                 return afterNode.rightChild;
             }
             else if (afterNode.parentNode != null)
             {
                 if (afterNode.isLeftChild())
+                {
+                    this.amortizedComplexity += this.getAmortizedComplexity(afterNode, afterNode.parentNode);
                     return afterNode.parentNode;
+                }
                 else
                     return firstNotVisitedParent(afterNode);
             }
@@ -227,12 +258,22 @@ namespace BinaryTreeAmortizedAnalyis
         {
             while (ofNode.parentNode != null)
             {
+                this.amortizedComplexity += this.getAmortizedComplexity(ofNode, ofNode.parentNode);
                 if (ofNode.parentNode.isVisited() == false)
                     return ofNode.parentNode;
-
+                
                 ofNode = ofNode.parentNode;
             }
             return null;
+        }
+
+        private int getAmortizedComplexity(BinaryTreeNode fromNode, BinaryTreeNode toNode)
+        {
+            int value = 1 + toNode.rank - fromNode.rank;
+
+            Debug.WriteLine(fromNode.value + "->" + toNode.value + "=>" + value);
+
+            return value;
         }
         #endregion
     }
