@@ -1,0 +1,177 @@
+\hypertarget{class_binary_tree_amortized_analyis_1_1_binary_tree}{}\section{Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree Class Reference}
+\label{class_binary_tree_amortized_analyis_1_1_binary_tree}\index{Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree}}
+
+
+A class representing a binary tree.  
+
+
+Inheritance diagram for Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_binary_tree_amortized_analyis_1_1_binary_tree}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_a47eb542ded4a15b94e5f4ae02c0a96b8}{Binary\+Tree} (int\mbox{[}$\,$\mbox{]} integers)
+\begin{DoxyCompactList}\small\item\em Initializes the \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree}{Binary\+Tree} with an array of integers. N\+O\+TE\+: All duplicated integers will be removed during the initialization and the tree will contain Nodes with unique values. \end{DoxyCompactList}\item 
+\hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_a079ac3f7742ce2902a6a6793f47d5651}{Binary\+Tree} (int number\+Of\+Nodes)
+\begin{DoxyCompactList}\small\item\em Initializes the \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree}{Binary\+Tree} with a specified number of random Nodes. \end{DoxyCompactList}\item 
+int \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_a0b33bd438f7fd259523e19dda366b443}{calculate\+Amortized\+Complexity} ()
+\begin{DoxyCompactList}\small\item\em Performs a full inorder transverse of the \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree}{Binary\+Tree} and calculates the amortized complexity of the transversal. \end{DoxyCompactList}\item 
+\hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_ad11655dc762ecf73b22c2a61ddbc68c8}{inorder\+First} ()
+\begin{DoxyCompactList}\small\item\em Puts the data structure into the initial state of the transversal (S0). \end{DoxyCompactList}\item 
+\hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_a8e5b691d35d622254d242ffb611f0cf3}{inorder\+Next} ()
+\begin{DoxyCompactList}\small\item\em Puts the data structure into the next state of the transversal. \end{DoxyCompactList}\item 
+bool \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_a1bfec2cdbb845f16ce9bf9211077e7eb}{is\+Inorder\+Transversal\+Finished} ()
+\begin{DoxyCompactList}\small\item\em Tells if the inorder transversal of the data structure is finished. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_a6c23184f17d0c484533e8526b29488e3}{node\+Values}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The array containing the sequence of the values in the tree. \end{DoxyCompactList}\item 
+\hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_ab1598c045051cc8cf5b9696dbd8a8ee9}{Distinguished\+Node}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Read only property for the distinguished\+Node field. \end{DoxyCompactList}\item 
+\hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_a1a88e9a8a44b2c072ed988da7cad43ca}{Root\+Node}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Read only property for the root\+Node field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class representing a binary tree. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}!Binary\+Tree@{Binary\+Tree}}
+\index{Binary\+Tree@{Binary\+Tree}!Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}}
+\subsubsection[{\texorpdfstring{Binary\+Tree(int[] integers)}{BinaryTree(int[] integers)}}]{\setlength{\rightskip}{0pt plus 5cm}Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree.\+Binary\+Tree (
+\begin{DoxyParamCaption}
+\item[{int\mbox{[}$\,$\mbox{]}}]{integers}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_binary_tree_a47eb542ded4a15b94e5f4ae02c0a96b8}{}\label{class_binary_tree_amortized_analyis_1_1_binary_tree_a47eb542ded4a15b94e5f4ae02c0a96b8}
+
+
+Initializes the \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree}{Binary\+Tree} with an array of integers. N\+O\+TE\+: All duplicated integers will be removed during the initialization and the tree will contain Nodes with unique values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em integers} & An array of integers.\\
+\hline
+\end{DoxyParams}
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}!Binary\+Tree@{Binary\+Tree}}
+\index{Binary\+Tree@{Binary\+Tree}!Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}}
+\subsubsection[{\texorpdfstring{Binary\+Tree(int number\+Of\+Nodes)}{BinaryTree(int numberOfNodes)}}]{\setlength{\rightskip}{0pt plus 5cm}Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree.\+Binary\+Tree (
+\begin{DoxyParamCaption}
+\item[{int}]{number\+Of\+Nodes}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_binary_tree_a079ac3f7742ce2902a6a6793f47d5651}{}\label{class_binary_tree_amortized_analyis_1_1_binary_tree_a079ac3f7742ce2902a6a6793f47d5651}
+
+
+Initializes the \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree}{Binary\+Tree} with a specified number of random Nodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Of\+Nodes} & The number of random Nodes in the tree.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}!calculate\+Amortized\+Complexity@{calculate\+Amortized\+Complexity}}
+\index{calculate\+Amortized\+Complexity@{calculate\+Amortized\+Complexity}!Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}}
+\subsubsection[{\texorpdfstring{calculate\+Amortized\+Complexity()}{calculateAmortizedComplexity()}}]{\setlength{\rightskip}{0pt plus 5cm}int Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree.\+calculate\+Amortized\+Complexity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_binary_tree_a0b33bd438f7fd259523e19dda366b443}{}\label{class_binary_tree_amortized_analyis_1_1_binary_tree_a0b33bd438f7fd259523e19dda366b443}
+
+
+Performs a full inorder transverse of the \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree}{Binary\+Tree} and calculates the amortized complexity of the transversal. 
+
+\begin{DoxyReturn}{Returns}
+The amortized complexity of the transversal.
+\end{DoxyReturn}
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}!inorder\+First@{inorder\+First}}
+\index{inorder\+First@{inorder\+First}!Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}}
+\subsubsection[{\texorpdfstring{inorder\+First()}{inorderFirst()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Binary\+Tree\+Node} Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree.\+inorder\+First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_binary_tree_ad11655dc762ecf73b22c2a61ddbc68c8}{}\label{class_binary_tree_amortized_analyis_1_1_binary_tree_ad11655dc762ecf73b22c2a61ddbc68c8}
+
+
+Puts the data structure into the initial state of the transversal (S0). 
+
+\begin{DoxyReturn}{Returns}
+The currently distinguished node.
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_binary_tree_amortized_analyis_1_1_i_inorder_transversal_a6e1092e20929796c8d7911610a804744}{Binary\+Tree\+Amortized\+Analyis.\+I\+Inorder\+Transversal}.
+
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}!inorder\+Next@{inorder\+Next}}
+\index{inorder\+Next@{inorder\+Next}!Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}}
+\subsubsection[{\texorpdfstring{inorder\+Next()}{inorderNext()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Binary\+Tree\+Node} Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree.\+inorder\+Next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_binary_tree_a8e5b691d35d622254d242ffb611f0cf3}{}\label{class_binary_tree_amortized_analyis_1_1_binary_tree_a8e5b691d35d622254d242ffb611f0cf3}
+
+
+Puts the data structure into the next state of the transversal. 
+
+\begin{DoxyReturn}{Returns}
+The currently distinguished node.
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_binary_tree_amortized_analyis_1_1_i_inorder_transversal_aefa8dc996d673a6439cd040359135cfb}{Binary\+Tree\+Amortized\+Analyis.\+I\+Inorder\+Transversal}.
+
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}!is\+Inorder\+Transversal\+Finished@{is\+Inorder\+Transversal\+Finished}}
+\index{is\+Inorder\+Transversal\+Finished@{is\+Inorder\+Transversal\+Finished}!Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}}
+\subsubsection[{\texorpdfstring{is\+Inorder\+Transversal\+Finished()}{isInorderTransversalFinished()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree.\+is\+Inorder\+Transversal\+Finished (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_binary_tree_a1bfec2cdbb845f16ce9bf9211077e7eb}{}\label{class_binary_tree_amortized_analyis_1_1_binary_tree_a1bfec2cdbb845f16ce9bf9211077e7eb}
+
+
+Tells if the inorder transversal of the data structure is finished. 
+
+\begin{DoxyReturn}{Returns}
+True, if the inorder transversal has ended and all nodes have been visited; False, othewise.
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_binary_tree_amortized_analyis_1_1_i_inorder_transversal_a8a169c9c426b9f37613f44e7997ae329}{Binary\+Tree\+Amortized\+Analyis.\+I\+Inorder\+Transversal}.
+
+
+
+\subsection{Property Documentation}
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}!Distinguished\+Node@{Distinguished\+Node}}
+\index{Distinguished\+Node@{Distinguished\+Node}!Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}}
+\subsubsection[{\texorpdfstring{Distinguished\+Node}{DistinguishedNode}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Binary\+Tree\+Node} Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree.\+Distinguished\+Node\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_binary_tree_amortized_analyis_1_1_binary_tree_ab1598c045051cc8cf5b9696dbd8a8ee9}{}\label{class_binary_tree_amortized_analyis_1_1_binary_tree_ab1598c045051cc8cf5b9696dbd8a8ee9}
+
+
+Read only property for the distinguished\+Node field. 
+
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}!node\+Values@{node\+Values}}
+\index{node\+Values@{node\+Values}!Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}}
+\subsubsection[{\texorpdfstring{node\+Values}{nodeValues}}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree.\+node\+Values\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_binary_tree_amortized_analyis_1_1_binary_tree_a6c23184f17d0c484533e8526b29488e3}{}\label{class_binary_tree_amortized_analyis_1_1_binary_tree_a6c23184f17d0c484533e8526b29488e3}
+
+
+The array containing the sequence of the values in the tree. 
+
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}!Root\+Node@{Root\+Node}}
+\index{Root\+Node@{Root\+Node}!Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree@{Binary\+Tree\+Amortized\+Analyis\+::\+Binary\+Tree}}
+\subsubsection[{\texorpdfstring{Root\+Node}{RootNode}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Binary\+Tree\+Node} Binary\+Tree\+Amortized\+Analyis.\+Binary\+Tree.\+Root\+Node\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_binary_tree_amortized_analyis_1_1_binary_tree_a1a88e9a8a44b2c072ed988da7cad43ca}{}\label{class_binary_tree_amortized_analyis_1_1_binary_tree_a1a88e9a8a44b2c072ed988da7cad43ca}
+
+
+Read only property for the root\+Node field. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Binary\+Tree\+Amortized\+Analyis/\hyperlink{_binary_tree_8cs}{Binary\+Tree.\+cs}\end{DoxyCompactItemize}

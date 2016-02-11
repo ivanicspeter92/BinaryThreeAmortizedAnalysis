@@ -1,0 +1,127 @@
+\hypertarget{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests}{}\section{Binary\+Tree\+Amortized\+Analyis.\+Tests.\+Binary\+Tree\+Node\+Tests Class Reference}
+\label{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests}\index{Binary\+Tree\+Amortized\+Analyis.\+Tests.\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis.\+Tests.\+Binary\+Tree\+Node\+Tests}}
+
+
+Unit test class for the \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} class.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_adbf03a4f515c53e6a2d36757b41998e3}{Test\+Binary\+Tree\+Node\+Initialization\+Without\+Parent} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the initialization of a \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} object with value only. The Tree\+Node should not have parent, children and the visited flag is expected to be false. \end{DoxyCompactList}\item 
+void \hyperlink{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a6905de60fa81fec3bd1a9f5b48324113}{Test\+Binary\+Tree\+Node\+Initialization\+Right\+Child\+Only} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the parent-\/child connection between two newly initialzied \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} objects. The value of the child is bigger than the parent and therefore the parent sees the child as child on the right. \end{DoxyCompactList}\item 
+void \hyperlink{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_ac7e12540c46eee3c405dc6a97301e10c}{Test\+Binary\+Tree\+Node\+Initialization\+Left\+Child\+Only} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the parent-\/child connection between two newly initialzied \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} objects. The value of the child is smaller than the parent and therefore the parent sees the child as child on the left. \end{DoxyCompactList}\item 
+void \hyperlink{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a22d4aca649e70db43727243f3c63f4f3}{Test\+Binary\+Tree\+Node\+Initialization\+Both\+Children} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the parent-\/child connection between three newly initialzied \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} objects. The value of one of the children should be smaller, the other one bigger so both the left and right child of the parent gets initialized. \end{DoxyCompactList}\item 
+void \hyperlink{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_ac97c78005d18135f15b6e1dc1d231073}{Test\+Connecting\+Two\+Nodes\+With\+Same\+Value\+Is\+Not\+Possible} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} that creating connection between two \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} objects with the same value is not possible. \end{DoxyCompactList}\item 
+void \hyperlink{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a8df3ce5b9bf41cc71598f08a490c1c4e}{Test\+Is\+Visited} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} visiting a \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} object. Before visiting the value of the visited flag should be false; after visiting, the value of the visited flag should be true. \end{DoxyCompactList}\item 
+void \hyperlink{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a0191c1bb6893a784d4fe6ccad459e071}{test\+Is\+Left\+Child} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the is\+Left\+Child() method. \end{DoxyCompactList}\item 
+void \hyperlink{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a682cf8370396e657a449732284ecd6e2}{test\+Is\+Right\+Child} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the is\+Right\+Child() method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Unit test class for the \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} class. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}!Test\+Binary\+Tree\+Node\+Initialization\+Both\+Children@{Test\+Binary\+Tree\+Node\+Initialization\+Both\+Children}}
+\index{Test\+Binary\+Tree\+Node\+Initialization\+Both\+Children@{Test\+Binary\+Tree\+Node\+Initialization\+Both\+Children}!Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}}
+\subsubsection[{\texorpdfstring{Test\+Binary\+Tree\+Node\+Initialization\+Both\+Children()}{TestBinaryTreeNodeInitializationBothChildren()}}]{\setlength{\rightskip}{0pt plus 5cm}void Binary\+Tree\+Amortized\+Analyis.\+Tests.\+Binary\+Tree\+Node\+Tests.\+Test\+Binary\+Tree\+Node\+Initialization\+Both\+Children (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a22d4aca649e70db43727243f3c63f4f3}{}\label{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a22d4aca649e70db43727243f3c63f4f3}
+
+
+\hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the parent-\/child connection between three newly initialzied \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} objects. The value of one of the children should be smaller, the other one bigger so both the left and right child of the parent gets initialized. 
+
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}!Test\+Binary\+Tree\+Node\+Initialization\+Left\+Child\+Only@{Test\+Binary\+Tree\+Node\+Initialization\+Left\+Child\+Only}}
+\index{Test\+Binary\+Tree\+Node\+Initialization\+Left\+Child\+Only@{Test\+Binary\+Tree\+Node\+Initialization\+Left\+Child\+Only}!Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}}
+\subsubsection[{\texorpdfstring{Test\+Binary\+Tree\+Node\+Initialization\+Left\+Child\+Only()}{TestBinaryTreeNodeInitializationLeftChildOnly()}}]{\setlength{\rightskip}{0pt plus 5cm}void Binary\+Tree\+Amortized\+Analyis.\+Tests.\+Binary\+Tree\+Node\+Tests.\+Test\+Binary\+Tree\+Node\+Initialization\+Left\+Child\+Only (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_ac7e12540c46eee3c405dc6a97301e10c}{}\label{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_ac7e12540c46eee3c405dc6a97301e10c}
+
+
+\hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the parent-\/child connection between two newly initialzied \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} objects. The value of the child is smaller than the parent and therefore the parent sees the child as child on the left. 
+
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}!Test\+Binary\+Tree\+Node\+Initialization\+Right\+Child\+Only@{Test\+Binary\+Tree\+Node\+Initialization\+Right\+Child\+Only}}
+\index{Test\+Binary\+Tree\+Node\+Initialization\+Right\+Child\+Only@{Test\+Binary\+Tree\+Node\+Initialization\+Right\+Child\+Only}!Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}}
+\subsubsection[{\texorpdfstring{Test\+Binary\+Tree\+Node\+Initialization\+Right\+Child\+Only()}{TestBinaryTreeNodeInitializationRightChildOnly()}}]{\setlength{\rightskip}{0pt plus 5cm}void Binary\+Tree\+Amortized\+Analyis.\+Tests.\+Binary\+Tree\+Node\+Tests.\+Test\+Binary\+Tree\+Node\+Initialization\+Right\+Child\+Only (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a6905de60fa81fec3bd1a9f5b48324113}{}\label{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a6905de60fa81fec3bd1a9f5b48324113}
+
+
+\hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the parent-\/child connection between two newly initialzied \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} objects. The value of the child is bigger than the parent and therefore the parent sees the child as child on the right. 
+
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}!Test\+Binary\+Tree\+Node\+Initialization\+Without\+Parent@{Test\+Binary\+Tree\+Node\+Initialization\+Without\+Parent}}
+\index{Test\+Binary\+Tree\+Node\+Initialization\+Without\+Parent@{Test\+Binary\+Tree\+Node\+Initialization\+Without\+Parent}!Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}}
+\subsubsection[{\texorpdfstring{Test\+Binary\+Tree\+Node\+Initialization\+Without\+Parent()}{TestBinaryTreeNodeInitializationWithoutParent()}}]{\setlength{\rightskip}{0pt plus 5cm}void Binary\+Tree\+Amortized\+Analyis.\+Tests.\+Binary\+Tree\+Node\+Tests.\+Test\+Binary\+Tree\+Node\+Initialization\+Without\+Parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_adbf03a4f515c53e6a2d36757b41998e3}{}\label{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_adbf03a4f515c53e6a2d36757b41998e3}
+
+
+\hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the initialization of a \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} object with value only. The Tree\+Node should not have parent, children and the visited flag is expected to be false. 
+
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}!Test\+Connecting\+Two\+Nodes\+With\+Same\+Value\+Is\+Not\+Possible@{Test\+Connecting\+Two\+Nodes\+With\+Same\+Value\+Is\+Not\+Possible}}
+\index{Test\+Connecting\+Two\+Nodes\+With\+Same\+Value\+Is\+Not\+Possible@{Test\+Connecting\+Two\+Nodes\+With\+Same\+Value\+Is\+Not\+Possible}!Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}}
+\subsubsection[{\texorpdfstring{Test\+Connecting\+Two\+Nodes\+With\+Same\+Value\+Is\+Not\+Possible()}{TestConnectingTwoNodesWithSameValueIsNotPossible()}}]{\setlength{\rightskip}{0pt plus 5cm}void Binary\+Tree\+Amortized\+Analyis.\+Tests.\+Binary\+Tree\+Node\+Tests.\+Test\+Connecting\+Two\+Nodes\+With\+Same\+Value\+Is\+Not\+Possible (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_ac97c78005d18135f15b6e1dc1d231073}{}\label{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_ac97c78005d18135f15b6e1dc1d231073}
+
+
+\hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} that creating connection between two \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} objects with the same value is not possible. 
+
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}!test\+Is\+Left\+Child@{test\+Is\+Left\+Child}}
+\index{test\+Is\+Left\+Child@{test\+Is\+Left\+Child}!Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}}
+\subsubsection[{\texorpdfstring{test\+Is\+Left\+Child()}{testIsLeftChild()}}]{\setlength{\rightskip}{0pt plus 5cm}void Binary\+Tree\+Amortized\+Analyis.\+Tests.\+Binary\+Tree\+Node\+Tests.\+test\+Is\+Left\+Child (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a0191c1bb6893a784d4fe6ccad459e071}{}\label{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a0191c1bb6893a784d4fe6ccad459e071}
+
+
+\hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the is\+Left\+Child() method. 
+
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}!test\+Is\+Right\+Child@{test\+Is\+Right\+Child}}
+\index{test\+Is\+Right\+Child@{test\+Is\+Right\+Child}!Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}}
+\subsubsection[{\texorpdfstring{test\+Is\+Right\+Child()}{testIsRightChild()}}]{\setlength{\rightskip}{0pt plus 5cm}void Binary\+Tree\+Amortized\+Analyis.\+Tests.\+Binary\+Tree\+Node\+Tests.\+test\+Is\+Right\+Child (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a682cf8370396e657a449732284ecd6e2}{}\label{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a682cf8370396e657a449732284ecd6e2}
+
+
+\hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} the is\+Right\+Child() method. 
+
+\index{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}!Test\+Is\+Visited@{Test\+Is\+Visited}}
+\index{Test\+Is\+Visited@{Test\+Is\+Visited}!Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests@{Binary\+Tree\+Amortized\+Analyis\+::\+Tests\+::\+Binary\+Tree\+Node\+Tests}}
+\subsubsection[{\texorpdfstring{Test\+Is\+Visited()}{TestIsVisited()}}]{\setlength{\rightskip}{0pt plus 5cm}void Binary\+Tree\+Amortized\+Analyis.\+Tests.\+Binary\+Tree\+Node\+Tests.\+Test\+Is\+Visited (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a8df3ce5b9bf41cc71598f08a490c1c4e}{}\label{class_binary_tree_amortized_analyis_1_1_tests_1_1_binary_tree_node_tests_a8df3ce5b9bf41cc71598f08a490c1c4e}
+
+
+\hyperlink{namespace_binary_tree_amortized_analyis_1_1_tests}{Tests} visiting a \hyperlink{class_binary_tree_amortized_analyis_1_1_binary_tree_node}{Binary\+Tree\+Node} object. Before visiting the value of the visited flag should be false; after visiting, the value of the visited flag should be true. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Binary\+Tree\+Amortized\+Analysis\+Tests/\+Node\+Tests/\hyperlink{_binary_tree_node_tests_8cs}{Binary\+Tree\+Node\+Tests.\+cs}\end{DoxyCompactItemize}
