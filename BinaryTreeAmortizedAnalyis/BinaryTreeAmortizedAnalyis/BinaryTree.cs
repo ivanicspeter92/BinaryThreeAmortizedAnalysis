@@ -253,7 +253,11 @@ namespace BinaryTreeAmortizedAnalyis
             }
              return null;
         }
-
+        /// <summary>
+        /// Gets the first unvisited parent of the given BinaryTreeNode.
+        /// </summary>
+        /// <param name="ofNode">The BinaryTreeNode from which the search will start.</param>
+        /// <returns>The "youngest" not yet visited parent of the given Node.</returns>
         private BinaryTreeNode firstNotVisitedParent(BinaryTreeNode ofNode)
         {
             while (ofNode.parentNode != null)
@@ -267,6 +271,12 @@ namespace BinaryTreeAmortizedAnalyis
             return null;
         }
 
+        /// <summary>
+        /// Calculates the amortized complexity of moving between the two given, neighbouring Nodes.
+        /// </summary>
+        /// <param name="fromNode">The Node to move from.</param>
+        /// <param name="toNode">The Node to move to.</param>
+        /// <returns>The amortized complexity value of the move from fromNode to toNode calculated from the nodes' ranks.</returns>
         private int getAmortizedComplexity(BinaryTreeNode fromNode, BinaryTreeNode toNode)
         {
             int value = 1 + toNode.rank - fromNode.rank;
