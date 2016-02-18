@@ -49,6 +49,15 @@ namespace BinaryTreeAmortizedAnalyis
         private int amortizedComplexity = 0;
 
         /// <summary>
+        /// Read only property for the amortizedComplexity field.
+        /// </summary>
+        public int AmortizedComplexity
+        {
+            get
+            { return amortizedComplexity; }
+        }
+
+        /// <summary>
         /// Initializes the BinaryTree with an array of integers. NOTE: All duplicated integers will be removed during the initialization and the tree will contain Nodes with unique values.
         /// </summary>
         /// <param name="integers">An array of integers.</param>
